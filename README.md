@@ -23,14 +23,9 @@ applicables.
 
 ## Clients
 
-IUT Laval Département MMI et TC
+IUT Laval Département Informatique
 
 52 Rue des Docteurs Calmette et Guérin
 53000 Laval
-
-Enseignants à l’initiative du projet :
-* <philippe.lallai@univ-lemans.fr>
-* <bruno.buchet@univ-lemans.fr>
-
 
 ![logo](https://upload.wikimedia.org/wikipedia/commons/f/f8/LOGO-ORIGINAL_WEB.jpg "Logo IUT Laval")
