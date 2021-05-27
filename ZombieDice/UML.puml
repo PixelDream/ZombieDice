@@ -1,0 +1,122 @@
+@startuml
+class zombiedice.utils.RandomUtils {
+- int min
+- int max
++ <<Create>> RandomUtils(int,int)
++ int nextInt()
+}
+class zombiedice.model.Dice {
++ <<Create>> Dice(DiceColor)
++ List<DiceFace> getDiceFaces()
++ DiceColor getDiceColor()
+}
+class zombiedice.model.exeption.NoMoreDiceException {
++ <<Create>> NoMoreDiceException()
+}
+class zombiedice.model.Game {
++ <<Create>> Game(Difficulty)
++ List<Player> getPlayersSort()
++ List<Player> getPlayers()
++ void start()
++ void newRound()
++ DiceManager getDiceManager()
+}
+class zombiedice.model.Player {
+- String name
+- int score
++ <<Create>> Player(String)
++ String getName()
++ String showScore()
++ int getScore()
++ void addScore(int)
+}
+class zombiedice.controller.GameController {
++ {static} int currentBrain
+~ boolean isPlaying
+~ int currentPlayerID
+~ VBox players
+~ Text player
+~ ImageView dice1
+~ Button launch
+~ AnchorPane brainFrame
++ void initialize(URL,ResourceBundle)
++ void updateScoreBoard()
+- void launch()
+- void next()
+- void leave()
+- void showCount()
+- void resetGame()
+}
+class zombiedice.controller.Controller {
+- boolean isNbPlayer
+- VBox players
+- ChoiceBox nbPlayers
+- Button play
++ void initialize(URL,ResourceBundle)
+- void checkValidate()
+- void play()
+- void nbPlayers()
+}
+class zombiedice.Main {
+- {static} Stage stage
++ {static} void main(String[])
++ {static} Stage getStage()
++ {static} Game getGame()
++ {static} void setGame(Game)
++ void start(Stage)
+}
+class zombiedice.model.DiceManager {
+- int greenDice
+- int yellowDice
+- int redDice
++ <<Create>> DiceManager(Difficulty)
+- void generateDices()
++ String getRandomDice()
++ String getGreenDice()
++ String getYellowDice()
++ String getRedDice()
+}
+enum zombiedice.model.DiceFace {
+BRAIN
+FIRE
+FOOT
++ <<Create>> DiceFace(String path, String extention)
++ String getPath(DiceColor color)
+}
+enum zombiedice.model.DiceColor {
+GREEN
+YELLOW
+RED
++ <<Create>> DiceColor(int brain, int foot, int fire)
++ int getBrain()
++ int getFoot()
++ int getFire()
+}
+enum zombiedice.model.Difficulty {
+EASY
+NORMAL
+HARD
++ <<Create>> Difficulty(String difficulty, int greenDice, int yellowDice, int redDice)
++ {static} Difficulty keyOf(String difficulty)
++ ObservableList getDifficulties()
++ String getDifficulty()
++ int getGreenDice()
++ int getYellowDice()
++ int getRedDice()
+}
+
+zombiedice.model.Dice --|> zombiedice.model.DiceFace : dicesFaces
+zombiedice.model.Dice --|> zombiedice.model.DiceColor : diceColor
+zombiedice.model.Game "1" *--> "*" zombiedice.model.Player : players
+zombiedice.model.Game --|> zombiedice.model.Difficulty : difficulty
+zombiedice.model.Game "*" *--> "1" zombiedice.model.DiceManager : diceManager
+zombiedice.Main "*" *--> "1" zombiedice.model.Game : game
+zombiedice.model.DiceManager "*" *--> "1" zombiedice.model.Dice : diceList
+
+
+java.util.Random <|-- zombiedice.utils.RandomUtils
+java.lang.Exception <|-- zombiedice.model.exeption.NoMoreDiceException
+javafx.fxml.Initializable <|.. zombiedice.controller.GameController
+javafx.fxml.Initializable <|.. zombiedice.controller.Controller
+javafx.application.Application <|-- zombiedice.Main
+@enduml

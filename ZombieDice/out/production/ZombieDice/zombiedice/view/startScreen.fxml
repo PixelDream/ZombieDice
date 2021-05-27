@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+          minWidth="-Infinity"
+          prefHeight="800.0" prefWidth="1200.0" styleClass="background" stylesheets="@../resources/style.css"
+          xmlns="http://javafx.com/javafx/9.0.1" fx:controller="zombiedice.controller.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="919.142822265625" minWidth="10.0" prefWidth="676.28564453125"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="600.2857840401784" minWidth="10.0"
+                           prefWidth="524.2857840401784"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="265.1428767613002" minHeight="10.0" prefHeight="265.1428767613002"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="586.2857230050224" minHeight="10.0" prefHeight="439.42855181012834"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="132.14283098493297" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="141.0" prefWidth="592.0" GridPane.columnSpan="2">
+            <children>
+                <TextFlow lineSpacing="4.0" prefHeight="90.0" prefWidth="1053.0" textAlignment="JUSTIFY"
+                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Zombie Dice est un jeu de dés rapide et facile pour les fans de zombies. Dans le jeu Zombie Dice, vous êtes un zombie frais ou pas frais, entier ou partiel, lent ou rapide … peu importe car vous ne voulez qu’une seule chose: des cerveeaauux. Les 13 dés personnalisés sont vos victimes. Tentez votre chance pour manger leurs cerveaux, mais arrêtez-vous avant que le fusil à pompe ne mette à fin votre tour.">
+                            <font>
+                                <Font name="Fira Code Medium" size="15.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="35.0"/>
+                    </padding>
+                </TextFlow>
+                <ImageView fitHeight="96.0" fitWidth="504.0" layoutX="368.0" layoutY="30.0" pickOnBounds="true"
+                           preserveRatio="true" styleClass="shadow" AnchorPane.topAnchor="30.0">
+                    <image>
+                        <Image url="@../resources/assets/images/title.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+                <Button layoutX="393.0" layoutY="17.0" mnemonicParsing="false" fx:id="play" onAction="#play"
+                        visible="false" prefHeight="53.0"
+                        prefWidth="177.0" text="JOUER" textAlignment="CENTER" AnchorPane.bottomAnchor="30.0"
+                        AnchorPane.rightAnchor="30.0">
+                    <font>
+                        <Font name="Fira Code SemiBold" size="19.0"/>
+                    </font>
+                    <styleClass>
+                        <String fx:value="startButton"/>
+                        <String fx:value="shadow"/>
+                    </styleClass>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <children>
+                <VBox fx:id="players" layoutX="50.0" layoutY="77.0" prefHeight="379.0" prefWidth="614.0"
+                      AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <children>
+                    </children>
+                </VBox>
+            </children>
+            <GridPane.margin>
+                <Insets top="10.0"/>
+            </GridPane.margin>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+                <ChoiceBox fx:id="nbPlayers" onAction="#nbPlayers" layoutX="-5.0" layoutY="39.0" prefHeight="32.0"
+                           prefWidth="90.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="45.0">
+                    <styleClass>
+                        <String fx:value="Box"/>
+                        <String fx:value="choiceBox"/>
+                    </styleClass>
+                </ChoiceBox>
+                <Label layoutX="-5.0" layoutY="9.0" text="Nombre de joueurs :" AnchorPane.leftAnchor="30.0"
+                       AnchorPane.topAnchor="15.0">
+                    <font>
+                        <Font name="Fira Code SemiBold" size="16.0"/>
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="difficulty" layoutX="27.0" layoutY="124.0" prefHeight="32.0" prefWidth="135.0"
+                           AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0">
+                    <styleClass>
+                        <String fx:value="Box"/>
+                        <String fx:value="choiceBox"/>
+                    </styleClass>
+                </ChoiceBox>
+                <Label layoutX="27.0" layoutY="94.0" text="Difficulté :" AnchorPane.leftAnchor="30.0"
+                       AnchorPane.topAnchor="100.0">
+                    <font>
+                        <Font name="Fira Code SemiBold" size="16.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
