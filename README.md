@@ -1,4 +1,4 @@
-![Image]( "Zombie Dice")
+![Image](https://github.com/PixelDream/ZombieDice/blob/master/ZombieDice/src/zombiedice/resources/assets/images/title.png "Zombie Dice")
 
 # TP JavaFX - Zombie Dice
 
